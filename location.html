@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWrPA4VZoD1qIlf2U9jBGyi3WDRVBzRyM&callback=initMap"></script>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="location.html">位置查詢</a></li>
+    <li><a href="exchange.html">匯率換算</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <h2>Explore Nearby Places</h2>
+  <button id="findLocation">要先按我才有地圖喔!</button>
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <div class="country-buttons">
+    <h3>熱門國家:</h3>
+    <button class="country" data-lat="40.7128" data-lng="-74.0060">美國</button>
+    <button class="country" data-lat="48.8566" data-lng="2.3522">法國</button>
+    <button class="country" data-lat="35.6762" data-lng="139.6503">日本</button>
+    <button class="country" data-lat="25.0330" data-lng="121.5654">台灣</button>
+    <button class="country" data-lat="37.5665" data-lng="126.9780">韓國</button>
+  </div>
+</div>
+<script src="script-location.js"></script>
+</body>
+
+</html>

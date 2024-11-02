@@ -1,0 +1,194 @@
+/* 全局樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* 頁面頭部英雄部分 */
+.hero {
+    background-color: #e0f7fa;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: #0277bd;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* 導航欄 */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00bcd4;
+}
+
+/* 主要內容部分 */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.feature {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    width: calc(100% - 40px);
+    max-width: 350px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h2 {
+    font-size: 1.6em;
+    color: #0277bd;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #0288d1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #01579b;
+}
+
+/* 中心引用部分 */
+.centered-quote {
+    background-color: #ffffff;
+    padding: 40px;
+    margin: 0 auto 40px auto;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quote blockquote {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #0288d1;
+    margin: 0;
+}
+
+/* 地圖樣式 */
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 匯率工具部分 */
+.exchange-form {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: calc(100% - 40px);
+    max-width: 350px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#convert {
+    padding: 10px 20px;
+    background-color: #0288d1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#convert:hover {
+    background-color: #01579b;
+}
+
+/* 熱門地點按鈕部分 */
+button.country {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #89CFF0; /* 淺藍色 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button.main-button:hover {
+    background-color: #0f5897;
+}
+
+button.country:hover {
+    background-color: #66B2E0; /* 更深的淺藍色 */
+    transform: scale(1.05);
+}

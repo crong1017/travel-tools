@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<nav>
+    <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="location.html">位置查詢</a></li>
+        <li><a href="exchange.html">匯率換算</a></li>
+    </ul>
+</nav>
+<body>
+<div class="container">
+    <h1>匯率換算器</h1>
+    <div class="exchange-form">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" min="0">
+
+        <label for="fromCurrency">From:</label>
+        <select id="fromCurrency">
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="TWD">TWD - New Taiwan Dollar</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="KRW">KRW - South Korean Won</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="THB">THB - Thai Baht</option>
+            <option value="MYR">MYR - Malaysian Ringgit</option>
+            <option value="VND">VND - Vietnamese Dong</option>
+            <option value="PHP">PHP - Philippine Peso</option>
+            <!-- 可以添加更多貨幣 -->
+        </select>
+
+        <label for="toCurrency">To:</label>
+        <select id="toCurrency">
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="TWD">TWD - New Taiwan Dollar</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="KRW">KRW - South Korean Won</option>
+            <option value="HKD">HKD - Hong Kong Dollar</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="THB">THB - Thai Baht</option>
+            <option value="MYR">MYR - Malaysian Ringgit</option>
+            <option value="VND">VND - Vietnamese Dong</option>
+            <option value="PHP">PHP - Philippine Peso</option>
+            <!-- 可以添加更多貨幣 -->
+        </select>
+
+        <button id="convert">轉換</button>
+    </div>
+
+    <div id="result">
+        <!-- 顯示轉換結果 -->
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#convert').click(function() {
+            // 獲取用戶輸入的金額和選擇的貨幣
+            let amount = $('#amount').val();
+            let fromCurrency = $('#fromCurrency').val();
+            let toCurrency = $('#toCurrency').val();
+
+            // 檢查用戶輸入的金額
+            if (amount === "" || amount <= 0) {
+                $('#result').html("Please enter a valid amount.");
+                return;
+            }
+
+            // API 請求的 URL (請用您的 API 密鑰替換 YOUR-API-KEY)
+            let apiKey = "359d1e29cae7f5e0bb16fd77";
+            let url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`;
+
+            // 使用 AJAX 發送請求
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function(response) {
+                    if (response.result === "success") {
+                        // 獲取匯率並計算兌換結果
+                        let rate = response.conversion_rates[toCurrency];
+                        let convertedAmount = (amount * rate).toFixed(2);
+
+                        // 在頁面上顯示結果
+                        $('#result').html(`${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`);
+                    } else {
+                        $('#result').html("Error fetching exchange rate.");
+                    }
+                },
+                error: function() {
+                    // 顯示錯誤信息
+                    $('#result').html("Failed to get exchange rate. Please try again later.");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
